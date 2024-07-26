@@ -16,6 +16,7 @@ calculatorContainer.addEventListener('click', (event) => {
                 previousNumber = '0'
                 operator = null
                 displayText.textContent = currentNumber
+                clearAllButtonBackground()
                 break
             case 'divideButton': 
                 setOperator('divideButton')
@@ -30,6 +31,7 @@ calculatorContainer.addEventListener('click', (event) => {
                 setOperator('additionButton') 
                 break
             case 'equalButton': 
+                clearAllButtonBackground()
                 equateValue(Number(previousNumber), Number(currentNumber))
                 break
             case 'decimalButton':
@@ -73,6 +75,7 @@ const setOperator = (input) => {
     setCurrentOperatorBackground(input)
 
     if (operator && previousNumber) {
+        equateValue(Number(previousNumber), Number(currentNumber))
         currentNumber = '0'
         operator = input
         return
@@ -80,9 +83,11 @@ const setOperator = (input) => {
 
     operator = input
     if(currentNumber != '0' && previousNumber != '0') {
+        
         equateValue(Number(previousNumber), Number(currentNumber))
-    } else if (previousNumber != '0' ) {
+    } else if (previousNumber != '0' && operator != input ) {
         equateValue(Number(currentNumber), Number(currentNumber))
+        console.log('Made it in else if')
     } else {
         previousNumber = currentNumber
     }
@@ -90,7 +95,6 @@ const setOperator = (input) => {
 
 const equateValue = (numberOne, numberTwo) => {
     let result
-    clearAllButtonBackground()
     switch(operator) {
         case 'additionButton':
             result = String(add(numberOne, numberTwo))
