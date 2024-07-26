@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #202426;
+}
+
+.headerContainer{
+    display: flex;
+    background-color: #202426;
+    color: rgb(225, 225, 225);
+    padding: 20px 150px;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.headerContainer p{
+    font-size: 40px;
+}
+
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calculatorContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    min-height: 800px;
+    min-width: 500px;
+    flex: 0 1 20%;
+    border: 2px, white, solid;
+    border-radius: 20px;
+}
+
+.displayContainer{
+    flex: 1;
+    display: flex;
+    font-size: 100px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 0px 35px;
+    color: white;
+    background-color: rgb(37, 37, 37);
+    border-radius: 20px 20px 0px 0px;
+}
+
+.buttonRow{
+    display: flex;
+    flex: 1;
+}
+
+.buttonRow .buttonContainer{
+    flex: 0 1 25%;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(85, 85, 85);
+    border: 1px, black, solid;
+    color: white
+}
+
+.buttonRow .buttonContainer:last-child{
+    background-color: orange;
+}
+
+.buttonRow .buttonContainer:hover{
+    background-color: rgb(75, 75, 75);
+}
+
+.buttonRow .buttonContainer:last-child:hover{
+    background-color: rgb(233, 153, 6);
+}
+
+#clearButton:hover{
+    background-color: rgb(47, 47, 47);
+}
+
+#clearButton{
+    flex-grow: 2;
+    background-color: rgb(56, 56, 56);
+}
+
+#equalButton {
+    border-radius: 0 0 20px 0;
+}
+
+#zeroButton{
+    flex-grow: 2;
+    border-radius: 0 0 0 20px;
+}
