@@ -8,9 +8,6 @@ const orangeButtons = document.querySelectorAll('.buttonContainer:last-child')
 
 calculatorContainer.addEventListener('click', (event) => {
     const target = event.target
-    // const { target: { tagName, id } } = event
-    // then you dont have to call target.id and target.tagName under here
-    // you can just call id and tagName
 
     if(target.tagName === 'BUTTON') {
         switch(target.id) {
@@ -130,6 +127,3 @@ const multiply = (numberOne, numberTwo) => numberOne * numberTwo
 
 const divide = (numberOne, numberTwo) => numberOne / numberTwo
 
-
-// Break up number when it is too long
-// 7 digit breaking point
