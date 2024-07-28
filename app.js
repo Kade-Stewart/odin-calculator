@@ -74,7 +74,12 @@ const setOperator = (input) => {
     clearAllButtonBackground()
     setCurrentOperatorBackground(input)
 
-    if (operator && previousNumber) {
+    if( operator && currentNumber === previousNumber) {
+        operator = input
+        return
+    }
+
+    if (operator && previousNumber != '0') {
         equateValue(Number(previousNumber), Number(currentNumber))
         currentNumber = '0'
         operator = input
@@ -83,18 +88,23 @@ const setOperator = (input) => {
 
     operator = input
     if(currentNumber != '0' && previousNumber != '0') {
-        
         equateValue(Number(previousNumber), Number(currentNumber))
     } else if (previousNumber != '0' && operator != input ) {
         equateValue(Number(currentNumber), Number(currentNumber))
-        console.log('Made it in else if')
-    } else {
+    } 
+
+    if(currentNumber && previousNumber === '0') {
         previousNumber = currentNumber
     }
 }
 
 const equateValue = (numberOne, numberTwo) => {
     let result
+    if(currentNumber && previousNumber === '0') {
+        numberOne = Number(currentNumber)
+        numberTwo = Number(currentNumber)
+    }
+
     switch(operator) {
         case 'additionButton':
             result = String(add(numberOne, numberTwo))
@@ -115,7 +125,6 @@ const equateValue = (numberOne, numberTwo) => {
         return 
     }
 
-    console.log(`Result: ${result}`)
     previousNumber = result
     displayText.textContent = result
 }
@@ -130,4 +139,3 @@ const multiply = (numberOne, numberTwo) => numberOne * numberTwo
 
 
 const divide = (numberOne, numberTwo) => numberOne / numberTwo
-
